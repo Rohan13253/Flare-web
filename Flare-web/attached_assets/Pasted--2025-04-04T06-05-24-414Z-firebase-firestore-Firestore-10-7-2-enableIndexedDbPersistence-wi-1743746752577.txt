@@ -1,0 +1,25 @@
+[2025-04-04T06:05:24.414Z]  @firebase/firestore: Firestore (10.7.2): enableIndexedDbPersistence() will be deprecated in the future, you can use `FirestoreSettings.cache` instead.
+[2025-04-04T06:05:24.524Z]  @firebase/firestore: Firestore (10.7.2): Error enabling indexeddb cache. Falling back to memory cache: FirebaseError: [code=failed-precondition]: Failed to obtain exclusive access to the persistence layer. To allow shared access, multi-tab synchronization has to be enabled in all tabs. If you are using `experimentalForceOwningTab:true`, make sure that only one tab has persistence enabled at any given time.
+Error enabling persistence: 
+FirebaseError {code: "failed-precondition", customData: undefined, name: "FirebaseError", toString: ƒ}
+
+[2025-04-04T06:05:24.718Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f92d transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}
+[2025-04-04T06:05:24.718Z]  @firebase/firestore: Firestore (10.7.2): Could not reach Cloud Firestore backend. Connection failed 1 times. Most recent error: FirebaseError: [code=unavailable]: The operation could not be completed
+This typically indicates that your device does not have a healthy Internet connection at the moment. The client will operate in offline mode until it is able to successfully connect to the backend.
+[2025-04-04T06:05:29.778Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f92e transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}
+[2025-04-04T06:05:34.805Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f92f transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}
+[2025-04-04T06:05:39.779Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f930 transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}
+[2025-04-04T06:05:45.142Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f931 transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}
+defaultPrevented: false
+g: Object
+status: 1
+target: Object
+type: "c"
+[[Prototype]]: Object
+[2025-04-04T06:05:49.843Z]  @firebase/firestore: Firestore (10.7.2): WebChannelConnection RPC 'Listen' stream 0x4ae4f932 transport errored: 
+Qd {type: "c", target: Q$1, g: Q$1, defaultPrevented: false, status: 1}

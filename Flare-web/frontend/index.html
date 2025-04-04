@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Flare - Forest Fire Detection System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-feather="activity" class="flame-icon"></i>
+                </div>
+                <div class="logo-text" style="text-align: center">
+                    <h1>Flare</h1>
+                    <p>Fire Detection System</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i data-feather="layout" class="nav-icon"></i>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-feather="bell" class="nav-icon"></i>
+                    <span class="nav-label">Alerts</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-feather="map" class="nav-icon"></i>
+                    <span class="nav-label">Map</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-feather="settings" class="nav-icon"></i>
+                    <span class="nav-label">Settings</span>
+                </a>
+            </nav>
+
+            <!-- Collapse button -->
+            <div class="sidebar-footer">
+                <button id="toggle-sidebar" class="toggle-btn">
+                    <i data-feather="chevron-left" class="toggle-icon"></i>
+                    <span class="toggle-text">Collapse</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Background effects -->
+            <div class="animated-gradient"></div>
+            <div class="bg-overlay"></div>
+            <div class="particles" id="particles"></div>
+
+            <div class="content-container">
+                <!-- Header -->
+                <header class="dashboard-header">
+                    <div class="header-icon">
+                        <i data-feather="activity" class="header-feather"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1>Flare Dashboard</h1>
+                        <p>Real-time forest fire monitoring system</p>
+                    </div>
+                </header>
+
+                <!-- Alert Box -->
+                <div class="alert-box" id="alert-box">
+                    <div class="alert-icon">
+                        <i data-feather="alert-triangle" class="alert-feather"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h2 id="alert-title">Warning: Elevated Risk Detected</h2>
+                        <p id="alert-message">Temperature (38°C) or smoke levels (150 PPM) are approaching dangerous thresholds.</p>
+                    </div>
+                </div>
+
+                <!-- Metric Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card" id="temperature-card">
+                        <div class="metric-content">
+                            <h3>Temperature</h3>
+                            <div class="metric-value">
+                                <span id="temperature-value">38</span>
+                                <span class="metric-unit">°C</span>
+                            </div>
+                        </div>
+                        <div class="metric-icon">
+                            <i data-feather="thermometer" class="metric-feather"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card" id="humidity-card">
+                        <div class="metric-content">
+                            <h3>Humidity</h3>
+                            <div class="metric-value">
+                                <span id="humidity-value">25</span>
+                                <span class="metric-unit">%</span>
+                            </div>
+                        </div>
+                        <div class="metric-icon">
+                            <i data-feather="droplet" class="metric-feather"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card" id="smoke-card">
+                        <div class="metric-content">
+                            <h3>Smoke Level</h3>
+                            <div class="metric-value">
+                                <span id="smoke-value">150</span>
+                                <span class="metric-unit">PPM</span>
+                            </div>
+                        </div>
+                        <div class="metric-icon">
+                            <i data-feather="wind" class="metric-feather"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sensor Data -->
+                <div class="sensor-container">
+                    <h2 class="section-title">
+                        <i data-feather="map-pin" class="section-icon"></i>
+                        Sensor Network Overview
+                    </h2>
+
+                    <div class="sensor-summary">
+                        <div class="sensor-status">
+                            <div class="status-indicator normal"></div>
+                            <span class="status-count">2</span>
+                            <span class="status-label">Normal</span>
+                        </div>
+                        <div class="sensor-status">
+                            <div class="status-indicator warning"></div>
+                            <span class="status-count">1</span>
+                            <span class="status-label">Warning</span>
+                        </div>
+                        <div class="sensor-status">
+                            <div class="status-indicator danger"></div>
+                            <span class="status-count">1</span>
+                            <span class="status-label">Critical</span>
+                        </div>
+                    </div>
+
+                    <div class="sensor-table-container">
+                        <table class="sensor-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Temp</th>
+                                    <th>Humidity</th>
+                                    <th>Smoke</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sensor-table-body">
+                                <!-- Sensor data will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Map Display -->
+                <div class="map-section">
+                    <h2 class="section-title">
+                        <i data-feather="map" class="section-icon"></i>
+                        Sensor Map
+                    </h2>
+                    <div id="map" style="height: 400px; border-radius: 12px; margin-top: 10px;"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+    </script>
+
+    <!-- Main JS -->
+    <script type="module" src="script.js"></script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</body>
+</html>
